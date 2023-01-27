@@ -1,0 +1,10 @@
+intertech
+hepsiburada, bankanin odeme taksitlendirmesi
+kredi kullandirimi yapilacak
+
+bilgileriAl()
+krediSkorKontrolEt()
+krediSecenekleriniGoster()
+belgeleriImzalat()
+krediyiKulandir()
+
