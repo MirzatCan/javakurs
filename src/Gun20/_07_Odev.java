@@ -1,5 +1,9 @@
 package Gun20;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.time.LocalDate;
+
 public class _07_Odev {
     public static void main(String[] args) {
 //        1-Ismi **randomNum** olan bir method oluşturun.
@@ -18,9 +22,6 @@ public class _07_Odev {
 //        Java'yı kolayca öğreniyorum.
 //        print: kolayca
           OrtaKelime("Benim Adim Mirzat");
-
-
-
 
 
 //        3-reverseString isminde bir method oluşturun.
@@ -54,12 +55,12 @@ public class _07_Odev {
 //        String =  "6678421312"
 //        6+6-7+8+4+2-1-3-1+2
 //        sonuç 16 olmalı
-
+        EvenOddNums("6678421312");
 
 
 //        6-Girilen bir diziyi tersten yazdıran bir metod yazınız.
-
-
+        String[] dizi={"M","I","R","Z","A","T"};
+        DiziYazdir(dizi);
 
 
 
@@ -79,7 +80,8 @@ public class _07_Odev {
 //        Sonuç= true
 //        ```
 
-
+        System.out.println();
+        System.out.println(powerOfThree(125001));
 
 
 //        8-`append adında bir method oluşturun.`
@@ -89,6 +91,9 @@ public class _07_Odev {
 //        Bunu döndürmelidir:
 //        {2, 4, 6, 1, 2, 3, 4, 5}.
 
+        int[] arry1={2, 4, 6};
+        int[] arry2={1, 2, 3, 4, 5};
+        append(arry1,arry2);
 
 
 
@@ -104,6 +109,15 @@ public class _07_Odev {
 //        int[] list = {4, 7, 2, 3, 9, 12, -47, -19, 308, 3, 74};
 //        ```
 //        Bu listede eleman 3, iki tane olduğu için sonuç false dönmelidir.
+        int[] list = {3, 8, 12, 2, 9, 17, 43, -8, 46, 203, 14, 97, 10, 4};
+        int[] list2 = {4, 7, 2, 3, 9, 12, -47, -19, 308, 3, 74};
+        System.out.println();
+        System.out.println(isUnique(list));
+        System.out.println(isUnique(list2));
+
+
+
+
     }
     public static int randomNum(int max) {
         int rnd = (int) (Math.random() * max);
@@ -137,9 +151,52 @@ public class _07_Odev {
 
         return cunle3;
     }
+    public static void EvenOddNums( String sayi) {
+        long lSayi = Long.parseLong(sayi);
+        int sonuc = 0;
+        do {
+            if ((lSayi%10)%2==0)
+                sonuc+=lSayi%10;
+            else
+                sonuc-=lSayi%10;
+            lSayi=lSayi/10;
+        }while (lSayi>0);
+        System.out.println("sonuc = " + sonuc);
 
+    }
+    public static void DiziYazdir(String[] dizi){
+        for (int i = dizi.length-1; i >=0; i--) {
+            System.out.print(dizi[i]);
+        }
+    }
+    public static boolean powerOfThree(int ustu3Mu){
+        for (int i = 0; i < ustu3Mu; i++) {
+            if (i * i * i == ustu3Mu)
+                return true;
+        }
+        return false;
+    }
+    public static void append(int[] arry1,int[] arry2){
+        int [] arry3 = new int[arry1.length+arry2.length-1];
+        for (int i = 0; i < arry1.length; i++) {
+            arry3[i]=arry1[i];
+        }
+        for (int i = 0; i < arry2.length; i++) {
+            arry3[(i+arry1.length)-1]=arry2[i];
+        }
+        for (int i = 0; i < arry3.length; i++) {
+            System.out.print(arry3[i]+" ");
+        }
 
+    }
+    public static boolean isUnique( int[] lists){
+        for (int i = 0; i < lists.length; i++) {
+            for (int j = 0; j < lists.length; j++) {
+                if (i!=j && lists[i]==lists[j])
+                    return false;
+            }
+        }
 
-
-
+        return true;
+    }
 }
